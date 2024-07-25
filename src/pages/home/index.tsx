@@ -100,7 +100,7 @@ export const HomePage = () => {
           return prevSubscriptions
         })
 
-        console.log("ASSINANDO TOPICOS")
+        console.log("Subscribing topics")
         const newSubscribes: StompSubscription[] = []
         prevMC?.forEach((control: IMessageControl, indexMC: number) => {
           console.log("subscribing", `/topic/chat_user_rk_${control.patient.user}`)
