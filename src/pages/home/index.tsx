@@ -312,7 +312,7 @@ export const HomePage = () => {
         message: "Falha ao carregar mensagem",
         description: error.message,
         duration: 5,
-        placement: "topRight",
+        placement: "topRight"
       })
     } finally {
       setLoadingMessages(false)
