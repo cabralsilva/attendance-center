@@ -248,9 +248,6 @@ export const HomePage = () => {
           login: import.meta.env.VITE_BROKER_USER,
           passcode: import.meta.env.VITE_BROKER_PASSWORD,
         },
-        debug: function (str) {
-          // console.log(str);
-        },
         reconnectDelay: 500,
         heartbeatIncoming: 4000,
         heartbeatOutgoing: 4000,
