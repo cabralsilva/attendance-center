@@ -1,0 +1,12 @@
+.ant-form-item-control-input-content {
+  display: flex;
+  gap: 8px;
+}
+
+.other-message {
+  position: relative;
+  left: 50%;
+}
+
+.self-message {
+}

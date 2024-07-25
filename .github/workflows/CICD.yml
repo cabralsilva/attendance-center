@@ -1,0 +1,40 @@
+name: CICD main
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+    types: ["closed"]
+
+jobs:
+  Build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ["ubuntu-latest"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Executando instalação
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.1
+        with:
+          name: api
+          path: |
+            dist
+
+  Deploy:
+    needs: Build
+    uses: ./.github/workflows/DeployS3.yml
+    secrets: inherit

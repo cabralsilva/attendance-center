@@ -1,0 +1,17 @@
+.ant-upload-list-item-container {
+  width: 100% !important;
+}
+
+.ant-upload-select {
+  width: 100% !important;
+}
+
+.ant-form-item-has-warning {
+  .ant-upload-list-item {
+    border: 1px solid #faad14 !important;
+  }
+
+  .ant-upload {
+    border: 1px dashed #faad14 !important;
+  }
+}
