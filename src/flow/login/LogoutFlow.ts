@@ -1,5 +1,5 @@
 import { OK } from "http-status";
-import { apiMain } from "../../axios/ApiMain";
+import { apiMain } from "../../axios/ApiChat";
 
 
 class LogoutFlow {

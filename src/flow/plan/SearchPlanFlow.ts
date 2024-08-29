@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
-import { apiMain, prepareRequestParams } from "../../axios/ApiMain";
+import { apiMain } from "../../axios/ApiChat";
+import { prepareRequestParams } from "../../axios/ApiMain";
 
 class SearchPlanFlow {
   async exec(filters: any): Promise<AxiosResponse<any, any>> {

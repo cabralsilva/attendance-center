@@ -66,7 +66,7 @@ export const LoginPage = () => {
                     return Promise.reject('Email inválido');
                   }
                 }]}
-                initialValue="cabralconsultoriaemsoftware@gmail.com"
+                initialValue="d.nadson@yahoo.com.br"
                 >
                 <Input prefix={<UserOutlined />} />
               </Form.Item>
@@ -77,7 +77,7 @@ export const LoginPage = () => {
               <Form.Item label="Senha" name="password" rules={[
                 { required: true, message: 'Informe sua senha!' }
               ]}
-              initialValue="abcdef">
+              initialValue="123456">
                 <Input.Password prefix={<LockOutlined />} />
               </Form.Item>
             </Col>

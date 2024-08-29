@@ -1,5 +1,5 @@
 import { OK } from "http-status";
-import { apiMain } from "../../axios/ApiMain";
+import { apiMain } from "../../axios/ApiChat";
 import { LS_USER_DATA, URL_LOGIN } from "../../const";
 import { ICredentials } from "../../models/ICredentials";
 import LogoutFlow from "./LogoutFlow";

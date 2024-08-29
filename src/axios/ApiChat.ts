@@ -8,8 +8,8 @@ export const CHECK_TOKEN_URL = "/auth/valid";
 export const SEARCH_SIGNATURES_URL = "/signature";
 export const SEARCH_COMPANY_URL = "/company";
 
-const apiChat: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL_API_CHAT,
+const apiMain: AxiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_API_URL_API_MAIN,
   headers: {
     "Content-type": "application/json",
   },
@@ -26,7 +26,7 @@ const prepareRequestParams = (options: any) => {
   return params;
 };
 
-apiChat.interceptors.request.use(
+apiMain.interceptors.request.use(
   async (config: any) => {
     config.headers = {
       Accept: "application/json",
@@ -56,7 +56,7 @@ apiChat.interceptors.request.use(
   }
 );
 
-apiChat.interceptors.response.use(
+apiMain.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -79,4 +79,4 @@ const errorHandler = (error: AxiosError) => {
   return Promise.reject(error);
 };
 
-export { apiChat, prepareRequestParams };
+export { apiMain, prepareRequestParams };

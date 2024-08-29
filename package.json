@@ -1,7 +1,7 @@
 {
   "name": "attendence-center",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "preversion": "tsc --skipLibCheck",
-    "postversion": "git push && git push --tags && npm publish",
+    "postversion": "git push && git push --tags",
     "publish-patch": "npm version patch --force",
     "publish-minor": "npm version minor",
     "publish-major": "npm version major"

@@ -1,9 +1,9 @@
 import { AxiosResponse } from "axios";
-import { apiMain, prepareRequestParams } from "../../axios/ApiMain";
+import { apiChat, prepareRequestParams } from "../../axios/ApiMain";
 
 class SearchMessageFlow {
   async exec(filters: any): Promise<AxiosResponse<any, any>> {
-    const response = await apiMain.get(
+    const response = await apiChat.get(
       "/chat-message",
       prepareRequestParams(filters)
     );

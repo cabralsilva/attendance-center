@@ -81,7 +81,7 @@ export const HomePage = () => {
     })
 
     if (consumer?.connected) {
-      const destination = `/exchange/chat-message`;
+      const destination = import.meta.env.VITE_EXCHANGE;
       consumer.publish({
         destination: destination,
         body: JSON.stringify(payload),
@@ -103,11 +103,11 @@ export const HomePage = () => {
         console.log("Subscribing topics")
         const newSubscribes: StompSubscription[] = []
         prevMC?.forEach((control: IMessageControl, indexMC: number) => {
-          console.log("subscribing", `/topic/chat_user_rk_${control.patient.user}`)
-          const sub = prevConsumer?.subscribe(`/topic/chat_user_rk_${control.patient.user}`, async (payload: IMessage) => {
+          console.log("subscribing", `${import.meta.env.VITE_PREFIX_TOPIC_DEFAULT}rk_${control.patient.user}`)
+          const sub = prevConsumer?.subscribe(`${import.meta.env.VITE_PREFIX_TOPIC_DEFAULT}rk_${control.patient.user}`, async (payload: IMessage) => {
             try {
               const message = JSON.parse(payload.body.toString()) as IChatMessage
-              console.log(`R: /topic/chat_user_rk_${control.patient.user}`, message)
+              console.log(`R: ${import.meta.env.VITE_PREFIX_TOPIC_DEFAULT}rk_${control.patient.user}`, message)
               setMessageControls((prevMessages: IMessageControl[]) => {
                 const mc = prevMessages.find((mc: IMessageControl) => mc.patient.user === control.patient.user) as IMessageControl
 
@@ -134,7 +134,7 @@ export const HomePage = () => {
                           payload.receivedDateTime = new Date()
                           payload.account = userData.account
                           prevConsumer.publish({
-                            destination: `/exchange/chat-message`,
+                            destination: import.meta.env.VITE_EXCHANGE,
                             body: JSON.stringify(payload),
                           });
 
@@ -150,7 +150,7 @@ export const HomePage = () => {
                               } as unknown as IChatMessage
 
                               prevConsumer.publish({
-                                destination: `/exchange/chat-message`,
+                                destination: import.meta.env.VITE_EXCHANGE,
                                 body: JSON.stringify(payloadSeen),
                               });
                             }
